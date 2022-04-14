@@ -22,8 +22,19 @@ namespace rost
 
             Random rnd = new Random();
             List<int> numerals = Enumerable.Range(0, 9).ToList();
+
+
             numerals.Sort((x, y) => rnd.Next(-1, 1));
-            return Convert.ToInt32(string.Join("", numerals.Take(numberLength)));
+
+            var number = string.Join("", numerals.Take(numberLength));
+
+            while (number.StartsWith("0"))//0123 = 123
+            {
+                numerals.Sort((x, y) => rnd.Next(-1, 1));
+                number = string.Join("", numerals.Take(numberLength));
+            }
+
+            return Convert.ToInt32(string.Join("", numerals.Take(numberLength))); 
         }
 
         public static void PrintResult(CompareResult result)

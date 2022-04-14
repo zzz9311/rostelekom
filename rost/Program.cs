@@ -10,7 +10,7 @@ namespace rost
         static void Main(string[] args)
         {
             int numberLength = 4;
-            var number =  RandomNumberProvider.GetRandomUniqueNumber(numberLength);
+            var number = RandomNumberProvider.GetRandomUniqueNumber(numberLength);
             int userResult;
             int attempts = 5;
             CompareResult result = new CompareResult();
