@@ -1,0 +1,16 @@
+C:\Users\Коля\source\repos\rost\rost\bin\Debug\net5.0\rost.exe
+C:\Users\Коля\source\repos\rost\rost\bin\Debug\net5.0\rost.deps.json
+C:\Users\Коля\source\repos\rost\rost\bin\Debug\net5.0\rost.runtimeconfig.json
+C:\Users\Коля\source\repos\rost\rost\bin\Debug\net5.0\rost.runtimeconfig.dev.json
+C:\Users\Коля\source\repos\rost\rost\bin\Debug\net5.0\rost.dll
+C:\Users\Коля\source\repos\rost\rost\bin\Debug\net5.0\ref\rost.dll
+C:\Users\Коля\source\repos\rost\rost\bin\Debug\net5.0\rost.pdb
+C:\Users\Коля\source\repos\rost\rost\obj\Debug\net5.0\rost.csproj.AssemblyReference.cache
+C:\Users\Коля\source\repos\rost\rost\obj\Debug\net5.0\rost.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Коля\source\repos\rost\rost\obj\Debug\net5.0\rost.AssemblyInfoInputs.cache
+C:\Users\Коля\source\repos\rost\rost\obj\Debug\net5.0\rost.AssemblyInfo.cs
+C:\Users\Коля\source\repos\rost\rost\obj\Debug\net5.0\rost.csproj.CoreCompileInputs.cache
+C:\Users\Коля\source\repos\rost\rost\obj\Debug\net5.0\rost.dll
+C:\Users\Коля\source\repos\rost\rost\obj\Debug\net5.0\ref\rost.dll
+C:\Users\Коля\source\repos\rost\rost\obj\Debug\net5.0\rost.pdb
+C:\Users\Коля\source\repos\rost\rost\obj\Debug\net5.0\rost.genruntimeconfig.cache
