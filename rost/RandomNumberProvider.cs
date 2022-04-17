@@ -8,7 +8,13 @@ namespace rost
 {
     class RandomNumberProvider
     {
-        public static int GetRandomUniqueNumber(int numberLength)
+        private readonly IPrinter _printer;
+
+        public RandomNumberProvider(IPrinter printer)
+        {
+            _printer = printer;
+        }
+        public int GetRandomUniqueNumber(int numberLength)
         {
             if (numberLength > 9)
             {
@@ -34,26 +40,23 @@ namespace rost
                 number = string.Join("", numerals.Take(numberLength));
             }
 
-            return Convert.ToInt32(string.Join("", numerals.Take(numberLength))); 
+            return Convert.ToInt32(number);
         }
 
-        public static void PrintResult(CompareResult result)
+        public void PrintResult(CompareResultOutput result)
         {
-            foreach(var el in result.ListResult)
-            {
-                Console.WriteLine(el);
-            }
+            _printer.Print(result.ComapreStringResult);
         }
 
-        public static CompareResult CompareNumbers(int userNumber, int number)
+        public CompareResultOutput CompareNumbers(int userNumber, int number)
         {
             int numberLength = number.ToString().Length;
             if (userNumber == number)
             {
-                return new CompareResult()
+                return new CompareResultOutput()
                 {
-                    Result = CompareResultCode.Equals,
-                    ListResult = Enumerable.Repeat("BULL", numberLength).ToList()
+                    CompareResult = CompareResultCode.Equals,
+                    ComapreStringResult = Enumerable.Repeat("BULL", numberLength).ToList()
                 };
             }
 
@@ -67,7 +70,7 @@ namespace rost
                 {
                     if (numberString[i] == userNumberString[j])
                     {
-                        if(i==j)
+                        if (i == j)
                         {
                             resultList.Add("BULL");
                         }
@@ -80,13 +83,13 @@ namespace rost
                 }
             }
 
-            return new CompareResult() { ListResult = resultList, Result = CompareResultCode.NotEquals };
+            return new CompareResultOutput() { ComapreStringResult = resultList, CompareResult = CompareResultCode.NotEquals };
         }
 
-        public sealed class CompareResult
+        public sealed class CompareResultOutput
         {
-            public CompareResultCode Result { get; set; } = CompareResultCode.NotEquals;
-            public List<string> ListResult = new List<string>();
+            public CompareResultCode CompareResult { get; set; } = CompareResultCode.NotEquals;
+            public List<string> ComapreStringResult = new List<string>();
         }
     }
 }

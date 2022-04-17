@@ -9,35 +9,36 @@ namespace rost
     {
         static void Main(string[] args)
         {
-            int numberLength = 4;
-            var number = RandomNumberProvider.GetRandomUniqueNumber(numberLength);
-            int userResult;
+            RandomNumberProvider randomNumberProvider = new RandomNumberProvider(new ConsolePrinter());
+            CompareResultOutput result = new CompareResultOutput();
+            int maxNumberLength = 4;
+            var number = randomNumberProvider.GetRandomUniqueNumber(maxNumberLength);
+            int userNumberResult;
             int attempts = 5;
-            CompareResult result = new CompareResult();
 
             while (attempts > 0)
             {
-                Console.WriteLine($"Введите число длинной {numberLength} символа");
+                Console.WriteLine($"Введите число длинной {maxNumberLength} символа");
 
-                while (!int.TryParse(Console.ReadLine(), out userResult)/* || userResult.ToString().Length != numberLength*/) 
+                while (!int.TryParse(Console.ReadLine(), out userNumberResult)/* || userResult.ToString().Length != numberLength*/)
                 {
-                    Console.WriteLine($"Введите число длинной {numberLength}");
+                    Console.WriteLine($"Введите число длинной {maxNumberLength}");
                 }
 
                 attempts -= 1;
 
-                result = RandomNumberProvider.CompareNumbers(userResult, number);
+                result = randomNumberProvider.CompareNumbers(userNumberResult, number);
 
-                RandomNumberProvider.PrintResult(result);
+                randomNumberProvider.PrintResult(result);
 
-                if(result.Result == CompareResultCode.Equals)
+                if (result.CompareResult == CompareResultCode.Equals)
                 {
                     Console.WriteLine("Вы победили");
                     break;
                 }
             }
 
-            if(attempts==0 && result.Result != CompareResultCode.Equals)
+            if (attempts == 0 && result.CompareResult != CompareResultCode.Equals)
             {
                 Console.WriteLine("Вы проиграли");
             }
